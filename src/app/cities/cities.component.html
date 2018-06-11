@@ -1,0 +1,49 @@
+<h3>Welcome to App</h3>
+
+<div class="form-group">
+  <label for="fname">Enter First Name:</label>
+  <input class="form-control" type="text" placeholder="Enter City" [(ngModel)]="city.city_name" /> 
+</div>
+
+
+<div class="form-group">
+<label for="lname">Enter Population:</label>
+<input class="form-control" type="text" placeholder="Enter Population"  [(ngModel)]="city.population" /> 
+</div>
+
+
+
+<div class="form-group">
+  <label for="lname">Enter Image:</label>
+  <input class="form-control" type="text" placeholder="Enter Image Url"  [(ngModel)]="city.image"/> 
+  </div>
+  
+
+<button  class="btn btn-info" (click)="citySave()" data-dismiss="modal">Submit</button>
+
+<br>
+
+<br>
+
+<table class="table table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>City Name</th>
+      <th>Population</th>
+      <th>Image</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let city of citiesRecord; let i = index;">
+   
+      <td>{{i +1}}</td>
+      <td>{{city.cities.city_name}}</td>
+      <td>{{city.cities.population}}</td>
+      <td><img [src]="city.cities.image" alt=""/></td>
+      <td><button class="btn btn-danger" (click)="cityDelete(city.id)" data-dismiss="modal">Delete</button></td>
+    </tr>
+    
+  </tbody>
+</table>

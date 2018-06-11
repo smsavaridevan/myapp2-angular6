@@ -1,0 +1,138 @@
+ 
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4 class="panel-title"> To Do
+          <div class="pull-right"> <!-- <a href="#" data-perform="panel-dismiss" class="btn btn-primary btn-xs pull-right"><i class="fa fa-times"></i></a> --> <a href="#"  class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i></a> </div>
+        </h4>
+      </div>
+     
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">To Do</h4>
+            </div>
+            <div class="modal-body">
+             
+              <input type="hidden" class="form-control" placeholder="Enter email" [(ngModel)]="task.today" >
+               
+              <div class="form-group">
+                <label for="task">Enter Your Task:</label>
+                <textarea class="form-control" placeholder="Enter Task" [(ngModel)]="task.taskdata"></textarea>
+              </div>
+             
+              <input type="hidden" class="form-control" placeholder="Enter status" [(ngModel)]="task.taskstatus" >
+              
+              <button type="submit" class="btn btn-default" (click)="tasksave()" data-dismiss="modal">Submit</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-wrapper collapse in">
+        <div class="panel-body">
+           <span style="color:blue;">{{todostatus}}</span>
+           <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Task </th>
+                  <th>Task Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                      <tr *ngFor="let tdo of tododetails;let i=index;">
+                        <td>{{i+1}}</td>
+                        <td>{{tdo.data.taskdata}}</td>
+                        <td>{{tdo.data.today | date}}</td>
+                        <td>
+                          <button (click)="changestatus(tdo)"  class="btn-info"> Change Status</button>
+                          <button (click)="deletetask(tdo.id)" class="btn-danger">Delete</button>
+                      
+                      </td>
+                    </tr>
+              </tbody>
+            </table>
+           
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4 class="panel-title"> Do Today
+          <div class="pull-right"> <!-- <a href="#" data-perform="panel-dismiss" class="btn btn-success btn-xs pull-right"><i class="fa fa-times"></i></a> --> 
+            <a href="#"  class="btn btn-success btn-xs pull-right"  data-toggle="modal"><i class="fa fa-plus"></i></a> </div>
+        </h4>
+      </div>
+
+    <!-- form Starts -->
+     
+
+
+      <div class="panel-wrapper collapse in">
+        <div class="panel-body">
+          
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h4 class="panel-title"> In Progress
+          <div class="pull-right"> <!-- <a href="#" data-perform="panel-dismiss" class="btn btn-danger btn-xs pull-right"><i class="fa fa-times"></i></a> --> <a href="#"  class="btn btn-danger btn-xs pull-right" data-toggle="modal" data-target="#myModaldotoday"><i class="fa fa-plus"></i></a> </div>
+        </h4>
+      </div>
+      <div class="panel-wrapper collapse in">
+        <div class="panel-body"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem fugiat nulla pariatur mollit anim id. </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4 class="panel-title"> Done
+          <div class="pull-right"> <!-- <a href="#" data-perform="panel-dismiss" class="btn btn-info btn-xs pull-right"><i class="fa fa-times"></i></a> --> <a href="#"  class="btn btn-info btn-xs pull-right"><i class="fa fa-plus"></i></a> </div>
+        </h4>
+      </div>
+      <div class="panel-wrapper collapse in">
+        <div class="panel-body"> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat perspiciatis unde omnis iste natus error. </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h4 class="panel-title"> In Progress
+            <div class="pull-right"> <!-- <a href="#" data-perform="panel-dismiss" class="btn btn-danger btn-xs pull-right"><i class="fa fa-times"></i></a> -->  <a href="#"  class="btn btn-success btn-xs pull-right" data-toggle="modal" data-target="#myModal1"><i class="fa fa-plus"></i></a> </div>
+          </h4>
+        </div>
+        <div class="panel-wrapper collapse in">
+          <div class="panel-body"> 
+            
+              <app-registeration></app-registeration>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>

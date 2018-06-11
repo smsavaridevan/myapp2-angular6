@@ -1,0 +1,24 @@
+<input type="text" [(ngModel)]="doctor.doctor_name" placeholder="Enter Doctor Name"/>
+<br>
+<input type="text" [(ngModel)]="doctor.doctor_age" placeholder="Enter Age of Doctor"/>
+<br>
+
+<input type="text" [(ngModel)]="doctor.doctor_image" placeholder="Enter Image of Doctor"/>
+<br>
+{{status}}
+<br>
+<button (click)="submitDoctorRecor()">Submit </button>
+ 
+
+<table border="1">
+    <tr>
+        <th>Doctor Name</th>
+        <th>Age</th>
+        <th>Image Url</th>
+    </tr>
+    <tr *ngFor="let x of doctordetails;">
+        <td>{{x.data.doctor_name}}</td>
+        <td>{{x.data.doctor_age}}</td>
+        <td><img style="width:100px;" src="{{x.data.doctor_image}}" alt="{{x.data.doctor_image}}"/></td>
+    </tr>
+</table>

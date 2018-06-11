@@ -1,0 +1,37 @@
+<p>
+  test1 works!
+</p>
+
+
+
+{{emp | json}}
+{{emp.first_name}}
+<br>
+<br>
+<input type="text" [(ngModel)]="city_name" placeholder="Enter City Name"/>
+<br>
+<input type="text" [(ngModel)]="city_population" placeholder="ENter Population"/>
+<br>
+<input type="text" [(ngModel)]="city_food" placeholder="ENter Food"/>
+<br>
+<button (click)="saveInCity()">Push in City</button>
+
+<table border="1">
+  <tr>
+    <th>No</th>
+    <th>City Name </th>
+    <th>City Population</th>
+    <th>City Food</th>
+    <td>Action</td>
+
+  </tr>
+  <tr *ngFor="let x of city_object; let i = index;">
+    <td>{{x.i}}</td>
+    <td>{{x.city_name}}</td>
+    <td>{{x.city_population}}</td>
+    <td>{{x.city_food}}</td>
+    <td (click)="deleteProd(i)">Delete</td>
+  </tr>
+
+</table>
+

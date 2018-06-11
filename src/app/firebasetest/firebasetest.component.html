@@ -1,0 +1,25 @@
+<p>
+  firebasetest works!
+</p>
+
+<input type="text" placeholder="Enter Employee Name" [(ngModel)]="emp.emp_name"/>
+<br>
+<input type="text" placeholder="Enter Employee Department" [(ngModel)]="emp.emp_dept"/>
+<br>
+
+<p>The Status is {{status}}</p>
+
+<button (click)="saveSubmit()">Submit The Record</button>
+
+
+
+<table border="1">
+  <tr>
+    <th>Employee Name</th>
+    <th>Department</th>
+  </tr>
+  <tr *ngFor="let x of employees">
+    <td>{{x.data.emp_name}}</td>
+    <td>{{x.data.emp_dept}}</td>
+  </tr>
+</table>

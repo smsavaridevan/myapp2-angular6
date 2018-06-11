@@ -1,0 +1,47 @@
+
+{{users | json}}
+
+<table border="1">
+  <tr style="background:#e3e3e3;">
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last name</th>
+    <th>avatar</th>
+
+  </tr>
+
+  <tr *ngFor="let x of users">
+    <td>{{x.id}}</td>
+    <td>{{x.first_name}}</td>
+    <td>{{x.last_name}}</td>
+    <td><img src="{{x.avatar}}"/></td>
+  </tr>
+</table>
+
+
+<input type="text" placeholder="Enter Student Id" [(ngModel)]="studentId"/>
+<br>
+<input type="text" placeholder="Enter Student Name" [(ngModel)]="studentName"/>
+<br>
+<input type="text" placeholder="Enter Address" [(ngModel)]="studentAddress"/>
+<br>
+<button (click)="saveStudentRecord()">Save Student Record</button>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Student Id</th>
+      <th>Student name</th>
+      <th>Student Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let y of studentRecords;">
+      <td>{{y.studentId}}</td>
+      <td>{{y.studentName}}</td>
+      <td>{{y.studentAddress}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+

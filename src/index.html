@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyApp2</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+   
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+<style>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    padding: 2% 5%;
+    background: #ffffff;
+  }
+  
+  h2 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0 0 10px;
+    color: #000000;
+    font-weight: 300;
+    text-align: center;
+  }
+  
+  .btn { margin-left: 4px; }
+  </style>
+</head>
+<body>
+  <app-root></app-root>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
+  <script>
+  $(document).ready(function() {
+  
+    /** ******************************
+     * Collapse Panels
+     * [data-perform="panel-collapse"]
+     ****************************** **/
+    (function($, window, document){
+      var panelSelector = '[data-perform="panel-collapse"]';
+  
+      $(panelSelector).each(function() {
+        var $this = $(this),
+        parent = $this.closest('.panel'),
+        wrapper = parent.find('.panel-wrapper'),
+        collapseOpts = {toggle: false};
+  
+        if( ! wrapper.length) {
+          wrapper =
+          parent.children('.panel-heading').nextAll()
+          .wrapAll('<div/>')
+          .parent()
+          .addClass('panel-wrapper');
+          collapseOpts = {};
+        }
+        wrapper
+        .collapse(collapseOpts)
+        .on('hide.bs.collapse', function() {
+          $this.children('i').removeClass('fa-minus').addClass('fa-plus');
+        })
+        .on('show.bs.collapse', function() {
+          $this.children('i').removeClass('fa-plus').addClass('fa-minus');
+        });
+      });
+      $(document).on('click', panelSelector, function (e) {
+        e.preventDefault();
+        var parent = $(this).closest('.panel');
+        var wrapper = parent.find('.panel-wrapper');
+        wrapper.collapse('toggle');
+      });
+    }(jQuery, window, document));
+    
+    /** ******************************
+     * Remove Panels
+     * [data-perform="panel-dismiss"]
+     ****************************** **/
+    (function($, window, document){
+      var panelSelector = '[data-perform="panel-dismiss"]';
+      $(document).on('click', panelSelector, function (e) {
+        e.preventDefault();
+        var parent = $(this).closest('.panel');
+        removeElement();
+  
+        function removeElement() {
+          var col = parent.parent();
+          parent.remove();
+          col.filter(function() {
+            var el = $(this);
+            return (el.is('[class*="col-"]') && el.children('*').length === 0);
+          }).remove();
+        }
+      });
+    }(jQuery, window, document));
+    
+  });
+  </script>
+   
+</body>
+</html>

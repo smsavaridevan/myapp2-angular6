@@ -1,0 +1,37 @@
+<input type="text" placeholder="Enter Your name" [(ngModel)]="name"/>
+<br>
+<input type="text" placeholder="Enter Address" [(ngModel)]="address"/>
+<br>
+<input type="text" placeholder="Enter Mobile Number" [(ngModel)]="mobile"/>
+<br>
+<button (click)="submitRecord()">Submit Here</button>
+<table border='1'>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Mobile Number</th>
+  </tr>
+  <tr *ngFor="let x of person_details;">
+    <td>{{x.name}}</td>
+    <td>{{x.address}}</td>
+    <td>{{x.mobile}}</td>
+  </tr>
+</table>
+
+<h3>Display the JSON API in Angular 4</h3>
+
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>first_name</th>
+    <th>last_name</th>
+    <th>avatar</th>
+  </tr>
+  <tr *ngFor="let y of users;">
+    <td>{{y.id}}</td>
+    <td>{{y.first_name}}</td>
+    <td>{{y.last_name}}</td>
+    <td><img src="{{y.avatar}}"/></td>
+  </tr>
+</table>

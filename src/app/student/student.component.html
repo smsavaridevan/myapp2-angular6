@@ -1,0 +1,31 @@
+<p>
+  student works!
+</p>
+<p>
+<input type="text" placeholder="Enter the Student Name" [(ngModel)]="student.name"/>
+</p>
+
+<p>
+<input type="text" placeholder="Enter the Student Register ID" [(ngModel)]="student.registerid"/>
+</p>
+<p>
+  <input type="text" placeholder="Enter the Student Address" [(ngModel)]="student.address"/>  
+</p>
+<p>{{status}}</p>
+
+<button (click)="submitRecord()">Submit the Record</button>
+<br>
+<br>
+
+<table border="1">
+  <tr>
+    <th>Student Name</th>
+    <th>Student Register Id</th>
+    <th>Student Address</th>
+  </tr>
+  <tr *ngFor="let x of studentRecord;">
+    <td>{{x.data.name}}</td>
+    <td>{{x.data.registerid}}</td>
+    <td>{{x.data.address}}</td>
+  </tr>
+</table>

@@ -1,0 +1,63 @@
+<p>
+  patient works!
+</p>
+
+
+<div class="form-group">
+  <label for="fname">Enter Patient Name:</label>
+  <input class="form-control" type="text" placeholder="Enter Patient Name" [(ngModel)]="patient.name" /> 
+</div>
+
+
+<div class="form-group">
+<label for="lname">Enter age:</label>
+<input class="form-control" type="text" placeholder="Enter Population"  [(ngModel)]="patient.age" /> 
+</div>
+
+
+
+<div class="form-group">
+  <label for="lname">Enter disease:</label>
+  <input class="form-control" type="text" placeholder="Enter Image Url"  [(ngModel)]="patient.disease"/> 
+  </div>
+  
+
+<button  class="btn btn-info" *ngIf="btn_status" (click)="patientSave()" data-dismiss="modal">Submit</button>
+
+<button  class="btn btn-info" *ngIf="!btn_status" (click)="patientUpdate()" data-dismiss="modal">Update</button>
+
+<br>
+
+<br>
+
+
+
+<table class="table table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Patient Name</th>
+      <th>Age</th>
+      <th>Disease</th>
+
+      <th>Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of patientRecord; let i = index;">
+   
+      <td>{{i +1}}</td>
+      <td>{{p.patient.name}}</td>
+      <td>{{p.patient.age}}</td>
+      <td>{{p.patient.disease}}</td>
+
+      <td>
+          <button class="btn btn-danger" (click)="patientDelete(p.id)" data-dismiss="modal">Delete</button>
+
+          <button class="btn btn-danger" (click)="editPatient(p)" data-dismiss="modal">Update</button>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>

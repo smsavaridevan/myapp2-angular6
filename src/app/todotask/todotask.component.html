@@ -1,0 +1,45 @@
+<p>
+  todotask works!
+</p>
+<label>Enter Your Name</label>
+<input type="text" [(ngModel)]="task.name" placeholder="Enter Your Name"/>
+<br>
+<label>Enter Date</label>
+<input type="date" [(ngModel)]="task.date" placeholder="Enter Date"/>
+<br>
+<label>Enter the Task Name</label>
+<input type="text" [(ngModel)]="task.taskname" placeholder="Enter The Task Name"/>
+<br>
+
+ 
+  <label>Select The Status</label>
+  <select [(ngModel)]="task.taskstatus"  >
+    <!-- <option [value]="i" *ngFor="let i of devices">{{i}}</option> -->
+     
+    <option value="Test1">Test1</option>
+    <option value="Test2">Test2</option>
+    <option value="Test2">Test3</option>
+</select>
+<br>
+{{pagestatus}}
+<br>
+<button (click)="savetodaytask()">Submit the Task</button>
+
+
+<br><br>
+<hr>
+
+<table border="1">
+  <tr>
+    <th>Name of Person</th>
+    <th>Date</th>
+    <th>Tast Name</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let x of tastrecord;">
+    <td>{{x.data.date}}</td>
+    <td>{{x.data.name}}</td>
+    <td>{{x.data.taskname}}</td>
+    <td>{{x.data.taskstatus}}</td>
+  </tr>
+</table>

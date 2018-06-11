@@ -1,0 +1,147 @@
+ 
+ <p>{{deleteStatus}}</p>
+
+ <table class="table table-striped table-bordered table-hover table-condensed">
+  <thead>
+  <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>User Name</th>
+    <th>Password</th>
+    <th>Email Address</th>
+    <th>Mobile Number</th>
+    <th>Course</th>
+    <th>Gender</th>
+    <th>DOB</th>
+    <th>Address</th>
+      <th>Delete</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let y of userlist;let i = index;">
+    
+    <td>{{i+1}}</td>
+    <td>{{y.data.first_name}} {{y.data.last_name}}</td>
+    <td>{{y.data.username}}</td>
+    <td>{{y.data.password}}</td>
+    <td>{{y.data.emailaddress}}</td>
+    <td>{{y.data.mobile}}</td>
+    <td>{{y.data.course}}</td>
+    <td>{{y.data.gender}}</td>
+    <td>{{y.data.dob}}</td>
+    <td>{{y.data.address}}</td>
+      <td><button class="btn btn-danger" (click)="deleteUser(y.id)">Delete</button></td>
+
+  </tr>
+</tbody>
+</table>
+
+<div class="modal fade" id="myModal1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">User Registeration Form</h4>
+      </div>
+      <div class="modal-body">
+       
+        
+        <div class="form-group">
+              <label for="fname">Enter First Name:</label>
+              <input class="form-control" type="text" placeholder="Enter First Name" [(ngModel)]="user.first_name" /> 
+        </div>
+
+        
+        <div class="form-group">
+            <label for="lname">Enter Last Name:</label>
+            <input class="form-control" type="text" placeholder="Enter Last Name:"  [(ngModel)]="user.last_name" /> 
+       </div>
+
+       
+        <div class="form-group">
+            <label for="mob">Enter Mobile Number:</label>
+            <input class="form-control" type="text" placeholder="Enter Mobile Number"  [(ngModel)]="user.mobile"/>
+        </div>
+
+      
+        <div class="form-group">
+            <label for="email">Enter Email Address:</label>
+            <input class="form-control" type="email" placeholder="Enter Email Address" [(ngModel)]="user.emailaddress"/>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Enter User Name:</label>
+            <input class="form-control" type="text" placeholder="Enter User Name" [(ngModel)]="user.username" />
+        </div>
+
+       
+        <div class="form-group">
+            <label for="Password">Enter Password:</label>
+            <input class="form-control" type="text" placeholder="Enter Password" [(ngModel)]="user.password" />
+        </div>
+      
+      
+       
+        <div class="form-group">
+            <label for="ConfirmPassword">Enter Confirm Password:</label>
+            <input class="form-control" type="text" placeholder="Enter Confirm Password" [(ngModel)]="user.confirmpassword"/>
+        </div>
+
+        
+    
+      
+
+
+        <div class="form-group">
+            <label for="state">Select State:</label>
+            <select class="form-control" >
+                <option>Select the State</option>  
+                <option *ngFor="let y of state" [(ngValue)]="user.state"  >{{y}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            &nbsp;&nbsp;&nbsp;
+            <input type="radio" [(ngModel)]="user.gender" value="Male"> Male &nbsp;&nbsp;&nbsp;
+            <input type="radio" [(ngModel)]="user.gender" value="Female"> Female &nbsp;&nbsp;&nbsp;
+            <input type="radio" [(ngModel)]="user.gender" value="Other"> Other &nbsp;&nbsp;&nbsp;
+      </div>
+
+     
+      <div class="form-group">
+          <label for="Course">Course:</label>
+          &nbsp;&nbsp;&nbsp;
+          <input type="checkbox" value="Angular6" [(ngModel)]="user.course" > Angular6  &nbsp;&nbsp;&nbsp;
+          <input type="checkbox" value="NodeJs" [(ngModel)]="user.course" > NodeJs  &nbsp;&nbsp;&nbsp;
+          <input type="checkbox" value="PHP" [(ngModel)]="user.course" > PHP  &nbsp;&nbsp;&nbsp;
+          <input type="checkbox" value="Android" [(ngModel)]="user.course" > Android  &nbsp;&nbsp;&nbsp;
+          <input type="checkbox" value="Python" [(ngModel)]="user.course" > Python &nbsp;&nbsp;&nbsp;
+          <input type="checkbox" value="Java" [(ngModel)]="user.course" > Java 
+      </div>
+
+
+   
+      <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <input type="date" class="form-control" [(ngModel)]="user.dob"/>  
+      </div>
+
+     
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea class="form-control" [(ngModel)]="user.address"></textarea>
+      </div>
+
+     
+      
+      <button type="submit" class="btn btn-default" (click)="userRegister()" data-dismiss="modal">Submit</button>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- form ends -->
